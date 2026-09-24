@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -14,16 +15,16 @@ public class AcompanhanteVO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id", nullable = false)
+    @Column (name = "ID", nullable = false)
     private Long id;
 
-    @Column (name = "nome", nullable = false)
+    @Column (name = "NOME", nullable = false)
     private String nome;
 
-    @Column (name = "confirmado")
+    @Column (name = "CONFIRMADO")
     private boolean confirmado;
 
-    @Column (name = "id_convidado")
+    @JoinColumn (name = "TB_CONVIDADO")
     @ManyToOne(targetEntity = ConvidadoVO.class, optional = false) 
     private ConvidadoVO convidado;
 

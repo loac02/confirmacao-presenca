@@ -18,16 +18,16 @@ public class ConviteVO {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id", nullable = false)
+    @Column (name = "ID", nullable = false)
     private Long id;
 
-    @Column (name = "data", nullable = false)
+    @Column (name = "DATA", nullable = false)
     private LocalDateTime data;
 
-    @Column (name = "local", nullable = false)
+    @Column (name = "LOCAL", nullable = false)
     private String local;
 
-    @Column (name = "restrito")
+    @Column (name = "RESTRITO")
     private boolean restrito;
 
     @OneToMany(mappedBy = "convite", cascade = CascadeType.ALL, orphanRemoval = true)

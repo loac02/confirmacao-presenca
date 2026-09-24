@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -18,20 +19,20 @@ public class ConvidadoVO {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false) 
+    @Column(name = "ID", nullable = false) 
     private Long id;
 
-    @Column(name = "nome", nullable = false)
+    @Column(name = "NOME", nullable = false)
     private String nome;
 
-    @Column(name = "confirmado")
+    @Column(name = "CONFIRMADO")
     private boolean confirmado;
 
-    @Column(name = "numero_telefone")
+    @Column(name = "NUMERO_TELEFONE")
     private String numeroTelefone;
-
+    
+    @JoinColumn(name = "TB_CONVITE")
     @ManyToOne(targetEntity = ConviteVO.class, optional = false)
-    @Column(name = "numero_convite")
     private ConviteVO convite;
 
     @OneToMany(mappedBy = "convidado", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -82,11 +83,11 @@ public class ConvidadoVO {
         this.numeroTelefone = numeroTelefone;
     }
 
-    public ConviteVO getNumeroConvite() {
+    public ConviteVO getConvite() {
         return convite;
     }
 
-    public void setNumeroConvite(ConviteVO convite) {
+    public void setConvite(ConviteVO convite) {
         this.convite = convite;
     }
     
